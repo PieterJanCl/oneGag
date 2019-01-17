@@ -14,6 +14,12 @@ class PostTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let savedPosts = Post.loadPost() {
+            posts = savedPosts
+        } else {
+            posts = Post.loadSamplePosts()
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

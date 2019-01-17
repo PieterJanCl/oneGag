@@ -12,12 +12,22 @@ struct Post {
     var name: String
     var info: String
     var date: Date
-    var image: UIImage
     
-    init(name: String, info: String, image: UIImage, date: Date) {
+    init(name: String, info: String, date: Date) {
         self.name = name
         self.info = info
         self.date = date
-        self.image = image
+    }
+    
+    static func loadPost() -> [Post]? {
+        return nil
+    }
+    
+    static func loadSamplePosts() -> [Post] {
+        let post1 = Post(name: "post1", info: "Dit is post 1", date: Date())
+        let post2 = Post(name: "post2", info: "Dit is post 2", date: Date())
+        let post3 = Post(name: "post3", info: "Dit is post 3", date: Date())
+        
+        return [post1, post2, post3]
     }
 }
