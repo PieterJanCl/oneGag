@@ -68,7 +68,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
-                                                        <action selector="textEditingChanged:" destination="ACU-zz-U65" eventType="editingDidEnd" id="DF6-ET-aCo"/>
+                                                        <action selector="textEditingChanged:" destination="ACU-zz-U65" eventType="editingChanged" id="rsI-8z-jkw"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -93,7 +93,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
-                                                        <action selector="textEditingChanged:" destination="ACU-zz-U65" eventType="editingDidEnd" id="dLl-9l-34z"/>
+                                                        <action selector="textEditingChanged:" destination="ACU-zz-U65" eventType="editingChanged" id="YYq-uW-Zxk"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>

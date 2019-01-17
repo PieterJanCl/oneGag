@@ -21,7 +21,7 @@ class PostViewController: UITableViewController {
         updateSaveButtonState()
     }
     
-    @IBAction func textEditingChanged(_ sender: Any) {
+    @IBAction func textEditingChanged(_ sender: UITextField) {
         updateSaveButtonState()
     }
     
