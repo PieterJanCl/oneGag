@@ -62,12 +62,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bkJ-ye-Hls">
+                                                <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="name" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bkJ-ye-Hls">
                                                     <rect key="frame" x="8" y="8" width="359" height="27.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
+                                                        <action selector="returnPressed:" destination="ACU-zz-U65" eventType="primaryActionTriggered" id="miX-cf-jiL"/>
                                                         <action selector="textEditingChanged:" destination="ACU-zz-U65" eventType="editingChanged" id="rsI-8z-jkw"/>
                                                     </connections>
                                                 </textField>
@@ -87,13 +88,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Extra information" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f7s-g2-pQE">
+                                                <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="info" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Extra information" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f7s-g2-pQE">
                                                     <rect key="frame" x="8" y="8" width="359" height="27.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
-                                                        <action selector="textEditingChanged:" destination="ACU-zz-U65" eventType="editingChanged" id="YYq-uW-Zxk"/>
+                                                        <action selector="returnPressed:" destination="ACU-zz-U65" eventType="primaryActionTriggered" id="Wqe-Ku-mqm"/>
+                                                        <action selector="textEditingChanged:" destination="ACU-zz-U65" eventType="editingChanged" id="aiu-Pe-RDN"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>

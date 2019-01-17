@@ -32,4 +32,8 @@ class PostViewController: UITableViewController {
         saveButton.isEnabled = !name.isEmpty && !extraInfo.isEmpty
     }
 
+    @IBAction func returnPressed(_ sender: UITextField) {
+        nameTextField.resignFirstResponder()
+        extraInfoTextField.resignFirstResponder()
+    }
 }
