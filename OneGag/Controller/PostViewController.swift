@@ -21,6 +21,10 @@ class PostViewController: UITableViewController {
         updateSaveButtonState()
     }
     
+    @IBAction func textEditingChanged(_ sender: Any) {
+        updateSaveButtonState()
+    }
+    
     func updateSaveButtonState() {
         let name = nameTextField.text ?? ""
         let extraInfo = extraInfoTextField.text ?? ""

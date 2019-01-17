@@ -67,6 +67,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="ACU-zz-U65" eventType="editingDidEnd" id="DF6-ET-aCo"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -89,6 +92,9 @@
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="ACU-zz-U65" eventType="editingDidEnd" id="dLl-9l-34z"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -180,6 +186,7 @@
                         <outlet property="extraInfoTextField" destination="f7s-g2-pQE" id="lco-5e-5xo"/>
                         <outlet property="nameTextField" destination="bkJ-ye-Hls" id="CvN-BF-ZeI"/>
                         <outlet property="resultDate" destination="G6o-tl-tVp" id="uwJ-JW-foQ"/>
+                        <outlet property="saveButton" destination="g3t-RN-5gd" id="2Ld-Sg-y0b"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w7s-1E-VIA" userLabel="First Responder" sceneMemberID="firstResponder"/>
