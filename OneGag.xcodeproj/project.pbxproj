@@ -13,6 +13,7 @@
 		A32D6FAA21F10257004966CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32D6FA821F10257004966CF /* LaunchScreen.storyboard */; };
 		A32D6FB621F10F55004966CF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D6FB521F10F55004966CF /* Post.swift */; };
 		A32D6FB821F11D2A004966CF /* PostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D6FB721F11D2A004966CF /* PostTableViewController.swift */; };
+		A32D6FBC21F141A3004966CF /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D6FBB21F141A3004966CF /* PostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A32D6FAB21F10257004966CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A32D6FB521F10F55004966CF /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		A32D6FB721F11D2A004966CF /* PostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewController.swift; sourceTree = "<group>"; };
+		A32D6FBB21F141A3004966CF /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				A32D6FB721F11D2A004966CF /* PostTableViewController.swift */,
+				A32D6FBB21F141A3004966CF /* PostViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A32D6FBC21F141A3004966CF /* PostViewController.swift in Sources */,
 				A32D6FB621F10F55004966CF /* Post.swift in Sources */,
 				A32D6FB821F11D2A004966CF /* PostTableViewController.swift in Sources */,
 				A32D6FA021F10256004966CF /* AppDelegate.swift in Sources */,
