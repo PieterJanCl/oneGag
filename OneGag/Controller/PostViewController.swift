@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostViewController: UITableViewController, UITextViewDelegate {
+class PostViewController: UITableViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var isPickerHidden = true
     var post: Post?
@@ -18,6 +18,8 @@ class PostViewController: UITableViewController, UITextViewDelegate {
     @IBOutlet weak var resultDate: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var extraInfoTextView: UITextView!
+    @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var choseImageButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,8 @@ class PostViewController: UITableViewController, UITextViewDelegate {
             nameTextField.text = post.name
             datePicker.date = post.date
             extraInfoTextView.text = post.info
+            postImageView.image = post.photo.image
+            choseImageButton.isHidden = true
         }
         
         if(extraInfoTextView.text.isEmpty) {
@@ -38,6 +42,19 @@ class PostViewController: UITableViewController, UITextViewDelegate {
         
         updateSaveButtonState()
         updateResultDateLabel(date: datePicker.date)
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PostViewController.imageTapped))
+        postImageView.isUserInteractionEnabled = true
+        postImageView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        choseImage()
+    }
+    
+    @IBAction func choseImage(_ sender: UIButton) {
+        choseImage()
     }
     
     @IBAction func textEditingChanged(_ sender: UITextField) {
@@ -79,6 +96,45 @@ class PostViewController: UITableViewController, UITextViewDelegate {
         resultDate.text = Post.dateFormatter.string(from: date)
     }
     
+    func choseImage() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        
+        let alertController = UIAlertController(title: "Choose Image Source", message: nil, preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let cameraAction = UIAlertAction(title: "Camera", style:
+                .default, handler: {
+                    action in imagePicker.sourceType = .camera
+                    self.present(imagePicker, animated: true, completion: nil)
+            })
+            alertController.addAction(cameraAction)
+        }
+        
+        if UIImagePickerController.isSourceTypeAvailable (.photoLibrary) {
+            let photoLibraryAction = UIAlertAction(title: "photolibrary", style:
+                .default, handler: {
+                    action in imagePicker.sourceType = .photoLibrary
+                    self.present(imagePicker, animated: true, completion: nil)
+            })
+            alertController.addAction(photoLibraryAction)
+        }
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            postImageView.image = selectedImage
+            choseImageButton.isHidden = true
+            
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let normalCellHeight = CGFloat(44)
         let largeCellHeight = CGFloat(200)
@@ -88,6 +144,9 @@ class PostViewController: UITableViewController, UITextViewDelegate {
                 return isPickerHidden ? normalCellHeight : largeCellHeight
 
             case [0,1]: //Extra info Cell
+                return largeCellHeight
+            
+            case [2,0]: //ImageView
                 return largeCellHeight
 
             default: return normalCellHeight
@@ -116,8 +175,9 @@ class PostViewController: UITableViewController, UITextViewDelegate {
         let name = nameTextField.text!
         let extraInfo = extraInfoTextView.text!
         let date = datePicker.date
+        let image: UIImage = postImageView.image!
         
-        post = Post(name: name, info: extraInfo, date: date)
+        post = Post(name: name, info: extraInfo, date: date, photo: image)
     }
 }
 

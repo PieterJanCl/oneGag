@@ -15,7 +15,7 @@ class PostTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let savedPosts = Post.loadPost() {
+        if let savedPosts = Post.loadPosts() {
             posts = savedPosts
         } else {
             posts = Post.loadSamplePosts()
@@ -34,11 +34,12 @@ class PostTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "postCell") else {fatalError("Could not deqeue cell")}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "postCell") as? PostCell else {fatalError("Could not deqeue cell")}
         let post = posts[indexPath.row]
         
-        cell.textLabel?.text = post.name
-        
+        cell.nameLabel?.text = post.name
+        cell.postImageView?.image = post.photo.image
+        cell.setImageHeight()
 
         return cell
     }
@@ -51,6 +52,7 @@ class PostTableViewController: UITableViewController {
         if editingStyle == .delete {
             posts.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            Post.savePosts(posts)
         } else if editingStyle == .insert {}
     }
     
@@ -68,6 +70,8 @@ class PostTableViewController: UITableViewController {
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }
+        
+        Post.savePosts(posts)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
