@@ -11,6 +11,7 @@ import UIKit
 class PostViewController: UITableViewController, UITextViewDelegate {
 
     var isPickerHidden = true
+    var post: Post?
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -94,6 +95,18 @@ class PostViewController: UITableViewController, UITextViewDelegate {
 
             default: break
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        guard segue.identifier == "saveUnwind" else {return}
+        
+        let name = nameTextField.text!
+        let extraInfo = extraInfoTextView.text!
+        let date = datePicker.date
+        
+        post = Post(name: name, info: extraInfo, date: date)
     }
 }
 
