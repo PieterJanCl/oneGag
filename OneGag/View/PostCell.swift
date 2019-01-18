@@ -19,4 +19,14 @@ class PostCell : UITableViewCell {
             postImageViewHeight.constant = postImageView.frame.size.width / (postImageView.image?.size.width)! * (postImageView.image?.size.height)!
         }
     }
+    
+    @IBAction func shareButtonTapped(_ sender: UIButton) {
+        guard let image = postImageView.image else {return}
+        let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        
+        activityController.popoverPresentationController?.sourceView = sender
+        
+        UIApplication.shared.keyWindow?.rootViewController?.present(activityController, animated: true, completion: nil)
+    }
+    
 }

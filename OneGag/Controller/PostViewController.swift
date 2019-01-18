@@ -123,6 +123,8 @@ class PostViewController: UITableViewController, UITextViewDelegate, UIImagePick
             alertController.addAction(photoLibraryAction)
         }
         
+        alertController.popoverPresentationController?.sourceView = choseImageButton
+
         present(alertController, animated: true, completion: nil)
     }
     
