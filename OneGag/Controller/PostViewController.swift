@@ -21,12 +21,23 @@ class PostViewController: UITableViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        extraInfoTextView.delegate = self
+        
+        if let post = post {
+            navigationItem.title = "Post"
+            nameTextField.text = post.name
+            datePicker.date = post.date
+            extraInfoTextView.text = post.info
+        }
+        
+        if(extraInfoTextView.text.isEmpty) {
+            extraInfoTextView.text = "Fill in extra information here"
+            extraInfoTextView.textColor = UIColor.lightGray
+        }
+        
         updateSaveButtonState()
         updateResultDateLabel(date: datePicker.date)
-        
-        extraInfoTextView.delegate = self
-        extraInfoTextView.text = "Fill in extra information here"
-        extraInfoTextView.textColor = UIColor.lightGray
     }
     
     @IBAction func textEditingChanged(_ sender: UITextField) {

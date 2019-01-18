@@ -10,10 +10,10 @@ import UIKit
 
 struct Post {
     var name: String
-    var info: String
+    var info: String?
     var date: Date
     
-    init(name: String, info: String, date: Date) {
+    init(name: String, info: String?, date: Date) {
         self.name = name
         self.info = info
         self.date = date

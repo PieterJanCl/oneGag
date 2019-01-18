@@ -59,13 +59,23 @@ class PostTableViewController: UITableViewController {
         let sourceViewController = segue.source as! PostViewController
         
         if let post = sourceViewController.post {
-            let newIndexPath = IndexPath(row: posts.count, section: 0)
-            posts.append(post)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            if let selectedIndex = tableView.indexPathForSelectedRow {
+                posts[selectedIndex.row] = post
+                tableView.reloadRows(at: [selectedIndex], with: .none)
+            } else {
+                let newIndexPath = IndexPath(row: posts.count, section: 0)
+                 posts.append(post)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
         }
-        
-        
-        
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPostDetails" {
+            let postViewController = segue.destination as! PostViewController
+            let indexPath = tableView.indexPathForSelectedRow!
+            let selectedPost = posts[indexPath.row]
+            postViewController.post = selectedPost
+        }
     }
 }
