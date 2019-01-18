@@ -30,4 +30,12 @@ struct Post {
         
         return [post1, post2, post3]
     }
+    
+    static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        
+        return formatter
+    }()
 }

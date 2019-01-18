@@ -88,22 +88,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" restorationIdentifier="info" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Extra information" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f7s-g2-pQE">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewp-e8-aTt">
                                                     <rect key="frame" x="8" y="8" width="359" height="27.5"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <action selector="returnPressed:" destination="ACU-zz-U65" eventType="primaryActionTriggered" id="Wqe-Ku-mqm"/>
-                                                        <action selector="textEditingChanged:" destination="ACU-zz-U65" eventType="editingChanged" id="aiu-Pe-RDN"/>
-                                                    </connections>
-                                                </textField>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="f7s-g2-pQE" secondAttribute="trailing" constant="8" id="SUD-Ji-YUQ"/>
-                                                <constraint firstItem="f7s-g2-pQE" firstAttribute="top" secondItem="aOr-Ei-eVi" secondAttribute="top" constant="8" id="Zim-b6-MsE"/>
-                                                <constraint firstItem="f7s-g2-pQE" firstAttribute="leading" secondItem="aOr-Ei-eVi" secondAttribute="leading" constant="8" id="ixW-wT-12b"/>
-                                                <constraint firstAttribute="bottom" secondItem="f7s-g2-pQE" secondAttribute="bottom" constant="8" id="kZe-ht-7Ws"/>
+                                                <constraint firstAttribute="bottom" secondItem="ewp-e8-aTt" secondAttribute="bottom" constant="8" id="DTE-mz-jir"/>
+                                                <constraint firstItem="ewp-e8-aTt" firstAttribute="leading" secondItem="aOr-Ei-eVi" secondAttribute="leading" constant="8" id="GST-fV-1Ag"/>
+                                                <constraint firstAttribute="trailing" secondItem="ewp-e8-aTt" secondAttribute="trailing" constant="8" id="bMe-KY-pa8"/>
+                                                <constraint firstItem="ewp-e8-aTt" firstAttribute="top" secondItem="aOr-Ei-eVi" secondAttribute="top" constant="8" id="d6i-Lb-SQX"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -126,10 +122,13 @@
                                                     <date key="date" timeIntervalSinceReferenceDate="569458313.31832194">
                                                         <!--2019-01-17 22:51:53 +0000-->
                                                     </date>
+                                                    <connections>
+                                                        <action selector="dateChanged:" destination="ACU-zz-U65" eventType="primaryActionTriggered" id="qHx-dg-On1"/>
+                                                    </connections>
                                                 </datePicker>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6O-ab-qK4">
-                                                    <rect key="frame" x="32" y="22" width="41" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="32" y="22" width="42" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -185,7 +184,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="Bl0-ZY-Ame" id="Ab2-P2-Umd"/>
-                        <outlet property="extraInfoTextField" destination="f7s-g2-pQE" id="lco-5e-5xo"/>
+                        <outlet property="extraInfoTextView" destination="ewp-e8-aTt" id="i8S-xF-fnQ"/>
                         <outlet property="nameTextField" destination="bkJ-ye-Hls" id="CvN-BF-ZeI"/>
                         <outlet property="resultDate" destination="G6o-tl-tVp" id="uwJ-JW-foQ"/>
                         <outlet property="saveButton" destination="g3t-RN-5gd" id="2Ld-Sg-y0b"/>
