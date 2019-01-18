@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OneGag/View/PostCell.swift"
-            timestampString = "569544930.3182679"
+            timestampString = "569546119.460844"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
             landmarkName = "PostCell"
             landmarkType = "3">
          </BreakpointContent>

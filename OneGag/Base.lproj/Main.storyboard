@@ -49,7 +49,10 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZU-ll-gD9">
                                                     <rect key="frame" x="179.5" y="0.0" width="179.5" height="0.5"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="Send email"/>
+                                                    <connections>
+                                                        <action selector="sendEmail:" destination="scQ-5h-Whq" eventType="touchUpInside" id="bno-jb-5wn"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
