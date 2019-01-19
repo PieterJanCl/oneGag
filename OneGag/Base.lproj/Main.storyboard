@@ -41,14 +41,21 @@
                                             <rect key="frame" x="8" y="35" width="359" height="0.5"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdw-A7-gJ9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="179.5" height="0.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="119.5" height="0.5"/>
                                                     <state key="normal" title="Share image"/>
                                                     <connections>
                                                         <action selector="shareButtonTapped:" destination="scQ-5h-Whq" eventType="touchUpInside" id="YY1-DS-xJO"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUd-wg-ZAT">
+                                                    <rect key="frame" x="119.5" y="0.0" width="120" height="0.5"/>
+                                                    <state key="normal" title="Animate"/>
+                                                    <connections>
+                                                        <action selector="animateButtonClicked:" destination="scQ-5h-Whq" eventType="touchUpInside" id="Tu8-Uw-31m"/>
+                                                    </connections>
+                                                </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZU-ll-gD9">
-                                                    <rect key="frame" x="179.5" y="0.0" width="179.5" height="0.5"/>
+                                                    <rect key="frame" x="239.5" y="0.0" width="119.5" height="0.5"/>
                                                     <state key="normal" title="Send email"/>
                                                     <connections>
                                                         <action selector="sendEmail:" destination="scQ-5h-Whq" eventType="touchUpInside" id="bno-jb-5wn"/>

@@ -61,6 +61,7 @@ struct Post: Codable, Equatable, Comparable{
     }
 }
 
+// Solution found to make UIImage Codable
 extension UIImage {
     var data: Data? {
         if let data = self.jpegData(compressionQuality: 1.0) {

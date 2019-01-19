@@ -22,6 +22,7 @@ class PostTableViewController: UITableViewController {
         }
         
         navigationItem.leftBarButtonItem = editButtonItem
+
     }
     
     override func viewDidAppear(_ animated: Bool) {

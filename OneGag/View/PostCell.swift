@@ -43,6 +43,19 @@ class PostCell : UITableViewCell, MFMailComposeViewControllerDelegate {
         
         UIApplication.shared.keyWindow?.rootViewController?.present(mailComposer, animated: true)
     }
-    
-    
+
+    // animationChaining -> Learned on youtube
+    @IBAction func animateButtonClicked(_ sender: Any) {
+        UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+            self.postImageView.transform = CGAffineTransform(translationX: -30, y: 0)
+        }) { (_) in
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+                self.postImageView.transform = CGAffineTransform(translationX: 30, y: 0)
+            }) { (_) in
+                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+                    self.postImageView.transform = CGAffineTransform(translationX: 0, y: 0)
+                })
+            }
+        }
+    }
 }
