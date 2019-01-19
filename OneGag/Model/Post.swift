@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Post: Codable {
+struct Post: Codable, Equatable, Comparable{
     var name: String
     var info: String?
     var date: Date
@@ -51,6 +51,14 @@ struct Post: Codable {
         
         return formatter
     }()
+    
+    static func == (lhs: Post, rhs: Post) -> Bool {
+        return lhs.name == rhs.name && lhs.date == rhs.date && lhs.info == rhs.info && lhs.photo == rhs.photo
+    }
+    
+    static func < (lhs: Post, rhs: Post) -> Bool {
+        return lhs.date > rhs.date
+    }
 }
 
 extension UIImage {

@@ -54,6 +54,7 @@ class PostViewController: UITableViewController, UITextViewDelegate, UIImagePick
                     if let data = data, let image = UIImage(data: data) {
                         DispatchQueue.main.async {
                             self.updateUI(post: Post(name: fetchinfo.title, info: fetchinfo.description, date: Date(), photo: image))
+                            self.saveButton.isEnabled = true
                         }
                     }
                 })
@@ -61,7 +62,7 @@ class PostViewController: UITableViewController, UITextViewDelegate, UIImagePick
                 task.resume()
                 self.nasa = false
             }
-            saveButton.isEnabled = true
+            
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }

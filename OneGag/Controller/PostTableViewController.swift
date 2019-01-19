@@ -16,7 +16,7 @@ class PostTableViewController: UITableViewController {
         super.viewDidLoad()
         
         if let savedPosts = Post.loadPosts() {
-            posts = savedPosts
+            posts = savedPosts.sorted(by: <)
         } else {
             posts = Post.loadSamplePosts()
         }
@@ -76,12 +76,13 @@ class PostTableViewController: UITableViewController {
         if let post = sourceViewController.post {
             if let selectedIndex = tableView.indexPathForSelectedRow {
                 posts[selectedIndex.row] = post
-                tableView.reloadRows(at: [selectedIndex], with: .none)
             } else {
                 let newIndexPath = IndexPath(row: posts.count, section: 0)
-                 posts.append(post)
+                posts.append(post)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
+            posts = posts.sorted(by: <)
+            tableView.reloadSections(IndexSet(integer: 0), with: .none)
         }
         
         Post.savePosts(posts)
