@@ -12,6 +12,8 @@ class PostViewController: UITableViewController, UITextViewDelegate, UIImagePick
 
     var isPickerHidden = true
     var post: Post?
+    let postTableViewController = PostTableViewController()
+    var nasa: Bool = false
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -23,19 +25,14 @@ class PostViewController: UITableViewController, UITextViewDelegate, UIImagePick
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         extraInfoTextView.delegate = self
         
         if let post = post {
-            navigationItem.title = "Post"
-            nameTextField.text = post.name
-            datePicker.date = post.date
-            extraInfoTextView.text = post.info
-            postImageView.image = post.photo.image
-            choseImageButton.isHidden = true
+            updateUI(post: post)
         }
         
-        if(extraInfoTextView.text.isEmpty) {
+        if(extraInfoTextView.text.isEmpty && !nasa) {
             extraInfoTextView.text = "Fill in extra information here"
             extraInfoTextView.textColor = UIColor.lightGray
         }
@@ -46,6 +43,27 @@ class PostViewController: UITableViewController, UITextViewDelegate, UIImagePick
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PostViewController.imageTapped))
         postImageView.isUserInteractionEnabled = true
         postImageView.addGestureRecognizer(tapGestureRecognizer)
+        
+        if nasa == true {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            
+            postTableViewController.fetchPhoto { (fetchinfo) in
+                guard let url = fetchinfo.url.withHTTPS() else {return}
+                
+                let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                    if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self.updateUI(post: Post(name: fetchinfo.title, info: fetchinfo.description, date: Date(), photo: image))
+                        }
+                    }
+                })
+                
+                task.resume()
+                self.nasa = false
+            }
+            saveButton.isEnabled = true
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        }
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
@@ -72,7 +90,7 @@ class PostViewController: UITableViewController, UITextViewDelegate, UIImagePick
     
     // code found on stackoverflow to set placeholder in UITextView
     func textViewDidBeginEditing(_ extraInfoTextView: UITextView) {
-        if extraInfoTextView.textColor == UIColor.lightGray {
+        if extraInfoTextView.text == "Fill in extra information here" {
             extraInfoTextView.text = nil
             extraInfoTextView.textColor = UIColor.black
         }
@@ -88,8 +106,9 @@ class PostViewController: UITableViewController, UITextViewDelegate, UIImagePick
     func updateSaveButtonState() {
         let name = nameTextField.text ?? ""
         let extraInfo = extraInfoTextView.text ?? ""
+        let image = postImageView.image ?? UIImage(named: "code123098")
         
-        saveButton.isEnabled = !name.isEmpty && !extraInfo.isEmpty
+        saveButton.isEnabled = !name.isEmpty && !extraInfo.isEmpty && image != UIImage(named: "code123098")
     }
     
     func updateResultDateLabel(date: Date) {
@@ -133,8 +152,19 @@ class PostViewController: UITableViewController, UITextViewDelegate, UIImagePick
             postImageView.image = selectedImage
             choseImageButton.isHidden = true
             
+            updateSaveButtonState()
+            
             dismiss(animated: true, completion: nil)
         }
+    }
+    
+    func updateUI(post: Post) {
+        navigationItem.title = "Post"
+        nameTextField.text = post.name
+        datePicker.date = post.date
+        extraInfoTextView.text = post.info
+        postImageView.image = post.photo.image
+        choseImageButton.isHidden = true
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

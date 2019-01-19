@@ -90,6 +90,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="ACU-zz-U65" kind="show" identifier="nasaPost" id="j8w-Rt-ctm"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PsG-iT-3HR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -195,6 +198,7 @@
                                                 <constraint firstItem="T6O-ab-qK4" firstAttribute="leading" secondItem="bul-LF-4B0" secondAttribute="leadingMargin" constant="16" id="Mek-YX-YJU"/>
                                                 <constraint firstItem="Bl0-ZY-Ame" firstAttribute="leading" secondItem="bul-LF-4B0" secondAttribute="leading" id="c50-fe-KDa"/>
                                                 <constraint firstAttribute="trailing" secondItem="G6o-tl-tVp" secondAttribute="trailing" constant="16" id="gDo-yL-R8t"/>
+                                                <constraint firstItem="G6o-tl-tVp" firstAttribute="leading" relation="lessThanOrEqual" secondItem="T6O-ab-qK4" secondAttribute="trailing" constant="243" id="gby-8F-qRq"/>
                                                 <constraint firstItem="G6o-tl-tVp" firstAttribute="top" secondItem="bul-LF-4B0" secondAttribute="topMargin" constant="11" id="hl0-Ea-fis"/>
                                                 <constraint firstItem="T6O-ab-qK4" firstAttribute="top" secondItem="bul-LF-4B0" secondAttribute="topMargin" constant="11" id="i5f-8g-UDI"/>
                                                 <constraint firstItem="Bl0-ZY-Ame" firstAttribute="top" secondItem="T6O-ab-qK4" secondAttribute="bottom" id="p6U-yS-EpU"/>
@@ -303,6 +307,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="5zq-37-MDL"/>
+        <segue reference="j8w-Rt-ctm"/>
     </inferredMetricsTieBreakers>
 </document>

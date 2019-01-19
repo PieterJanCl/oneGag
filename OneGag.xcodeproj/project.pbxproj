@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A311822321F3515C00D4FCCD /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311822221F3515C00D4FCCD /* PhotoInfo.swift */; };
 		A32D6FA021F10256004966CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D6F9F21F10256004966CF /* AppDelegate.swift */; };
 		A32D6FA521F10256004966CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32D6FA321F10256004966CF /* Main.storyboard */; };
 		A32D6FA721F10257004966CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A32D6FA621F10257004966CF /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A311822221F3515C00D4FCCD /* PhotoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfo.swift; sourceTree = "<group>"; };
 		A32D6F9C21F10256004966CF /* OneGag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneGag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A32D6F9F21F10256004966CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A32D6FA421F10256004966CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				A32D6FB521F10F55004966CF /* Post.swift */,
+				A311822221F3515C00D4FCCD /* PhotoInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A311822321F3515C00D4FCCD /* PhotoInfo.swift in Sources */,
 				A32D6FBC21F141A3004966CF /* PostViewController.swift in Sources */,
 				A32D6FB621F10F55004966CF /* Post.swift in Sources */,
 				A32D6FB821F11D2A004966CF /* PostTableViewController.swift in Sources */,
